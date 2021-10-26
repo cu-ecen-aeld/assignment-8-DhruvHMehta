@@ -2,15 +2,17 @@
 
 case "$1" in
   start)
-    echo "scull_load and module_load"
+    echo "scull_load, module_load and aesdchardriver load"
     /usr/bin/scull_load
     /usr/bin/module_load faulty
+    /usr/bin/aesdchar_load
     modprobe hello
     ;;
     stop)
-    echo "scull_unload and module_unload"
+    echo "scull_unload, module_unload and aesdchardriver unload"
     /usr/bin/scull_unload
     /usr/bin/module_unload faulty
+    /usr/bin/aesdchar_unload
     rmmod hello
     ;;
   *)
